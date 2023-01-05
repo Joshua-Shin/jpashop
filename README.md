@@ -1,6 +1,6 @@
 ## SpringBoot와 JPA를 활용한 웹 애플리케이션 개발 프로젝트
 - 본 프로젝트는 <실전! 스프링 부트와 JPA 활용1 : 웹 애플리케이션 개발 - 김영한> 강의를 수강하며 진행한 실습 프로젝트 입니다.
-- 사용 도구 : Java 11, Spring framework(2.7.7), Spring Boot, JPA, thymeleaf, JUnit5, IntelliJ, H2 database 
+- 사용 도구 : Java 11, Spring framework(2.7.7), Spring Boot, JPA, thymeleaf, JUnit4, IntelliJ, H2 database 
 -------
 ### 메모
 - @PersistenceContext
@@ -24,6 +24,7 @@
 - @Transactional
   - 테이블 값을 변경할때는 트랜젝션으로 쏴줘야 된대. 안그러면 변경 안됨.
   - test 코드에서 사용할 경우, 테스트 돌리고 나서 자동으로 rollback 해줌. 단, @Rollback(false) 라 해주면 롤백 안해줌
-- 현재 테스트 코드를 JUnit4로 돌리고 있음. 때문에 build.gradle에서 test를 junit4로 돌리라고 설정해줌. 이걸 따로 안잡아주면 디폴트로 junit5가 돌아가는듯
-- 테스트 코드 작성할때 위에 어노테이션을 @Runwith 이라든가, org.junit.Test의 @Test 라든가 하는것도 다 junit4 전용 라이브러리인듯.
-- 일단 이 강의는 junit4로 진행하자.
+- JUnit4
+  - 현재 테스트 코드를 JUnit4로 돌리고 있음. 때문에 build.gradle에서 test를 junit4로 돌리라고 설정해줌. 이걸 따로 안잡아주면 디폴트로 junit5가 돌아가는듯
+  - 테스트 코드 작성할때 위에 어노테이션을 @Runwith 이라든가, org.junit.Test의 @Test 라든가 하는것도 다 junit4 전용 라이브러리인듯.
+  - 일단 이 강의는 junit4로 진행하자.
