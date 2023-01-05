@@ -1,4 +1,29 @@
 ## SpringBoot와 JPA를 활용한 웹 애플리케이션 개발 프로젝트
+- 본 프로젝트는 <실전! 스프링 부트와 JPA 활용1 : 웹 애플리케이션 개발 - 김영한> 강의를 수강하며 진행한 실습 프로젝트 입니다.
 - 사용 도구 : Java 11, Spring framework(2.7.7), Spring Boot, JPA, thymeleaf, JUnit5, IntelliJ, H2 database 
 -------
-### 정리
+### 메모
+- @PersistenceContext
+  - 스프링 컨테이너에 등록된 빈을 찾아 **주입**해줌. 
+  - 마치 필드 주입 할떄 필드 위에다가 @Autowired 쓰는것처럼 기능이 비슷한듯
+- EntityManger
+  - 정확히는 모르겠지만, JPA에서 영속성 관리 부분에서 나오는 개념인듯
+  - 따로 해당 클래스를 정의해준다거나, 그런것도 없이 바로 주입하고 메소드를 사용할 수 있는걸 봐서는
+  - 스프링 부트가 실행되면서 EntityManager 구현체를 빈에 등록 해주는듯.
+  - 일단은 이런게 있다는 정도만 확인하고 넘어가자.
+    - em.find();    // 엔티티 조회
+    - em.persist(); // 엔티티 저장
+    - em.remove();  // 엔티티 삭제
+    - em.flush();   // 영속성 컨텍스트 내용을 데이터베이스에 반영
+    - em.detach();  // 엔티티를 준영속 상태로 전환
+    - em.merge();   // 준영속 상태의 엔티티를 영속상태로 변경
+    - em.clear();   // 영속성 컨텍스트 초기화
+    - em.close();   // 영속성 컨텍스트 종료
+- @Id @GeneratedValue
+  - 테스트코드 구현할때 Id 값을 set 하지 않아도 알아서 적절한 값이 들어간 이유가 이거 때문인듯
+- @Transactional
+  - 테이블 값을 변경할때는 트랜젝션으로 쏴줘야 된대. 안그러면 변경 안됨.
+  - test 코드에서 사용할 경우, 테스트 돌리고 나서 자동으로 rollback 해줌. 단, @Rollback(false) 라 해주면 롤백 안해줌
+- 현재 테스트 코드를 JUnit4로 돌리고 있음. 때문에 build.gradle에서 test를 junit4로 돌리라고 설정해줌. 이걸 따로 안잡아주면 디폴트로 junit5가 돌아가는듯
+- 테스트 코드 작성할때 위에 어노테이션을 @Runwith 이라든가, org.junit.Test의 @Test 라든가 하는것도 다 junit4 전용 라이브러리인듯.
+- 일단 이 강의는 junit4로 진행하자.
