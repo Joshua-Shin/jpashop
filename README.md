@@ -1,6 +1,6 @@
 ## SpringBoot와 JPA를 활용한 웹 애플리케이션 개발 프로젝트
 - 본 프로젝트는 <실전! 스프링 부트와 JPA 활용1 : 웹 애플리케이션 개발 - 김영한> 강의를 수강하며 진행한 실습 프로젝트 입니다.
-- 사용 도구 : Java 11, Spring framework(2.7.7), Spring Boot, JPA, thymeleaf, JUnit4, IntelliJ, H2 database 
+- 사용 도구 : Java 11, Spring Boot(2.7.7), Spring Boot, JPA, thymeleaf, JUnit4, IntelliJ, H2 database 
 -------
 ### 메모
 - @PersistenceContext
