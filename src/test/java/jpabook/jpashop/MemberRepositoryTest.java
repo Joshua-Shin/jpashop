@@ -21,7 +21,7 @@ public class MemberRepositoryTest {
     @Rollback(false)
     public void testMember() {
         Member member = new Member();
-        member.setUsername("memberA");
+        member.setUsername("memberD");
         Long savedId = memberRepository.save(member);
 
         Member findMember = memberRepository.find(savedId);

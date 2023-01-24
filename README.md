@@ -1,32 +1,23 @@
 ## SpringBoot와 JPA를 활용한 웹 애플리케이션 개발 프로젝트
 - 본 프로젝트는 <실전! 스프링 부트와 JPA 활용1 : 웹 애플리케이션 개발 - 김영한> 강의를 수강하며 진행한 실습 프로젝트 입니다.
-- 사용 도구 : Java 11, Spring Boot(2.7.7), Spring Boot, JPA, thymeleaf, JUnit4, IntelliJ, H2 database 
+- 사용 도구 : Java 11, Spring Boot(2.7.7), JPA(Hibernate 5.4.13.Final), thymeleaf, JUnit4, IntelliJ, H2 database(1.4.200)
 -------
-### 메모
+### 강의 내용 요약
+#### 프로젝트 환경설정
 - @PersistenceContext
-  - 스프링 컨테이너에 등록된 빈을 찾아 **주입**해줌. 
-  - 마치 필드 주입 할때 필드 위에다가 @Autowired 쓰는것처럼 기능이 비슷한듯
-- EntityManger
-  - 정확히는 모르겠지만, JPA에서 영속성 관리 부분에서 나오는 개념인듯
-  - 따로 해당 클래스를 정의해준다거나, 그런것도 없이 바로 주입하고 메소드를 사용할 수 있는걸 봐서는
-  - 스프링 부트가 실행되면서 EntityManager 구현체를 빈에 등록 해주는듯.
-  - 일단은 이런게 있다는 정도만 확인하고 넘어가자.
-    - em.find();    // 엔티티 조회
-    - em.persist(); // 엔티티 저장
-    - em.remove();  // 엔티티 삭제
-    - em.flush();   // 영속성 컨텍스트 내용을 데이터베이스에 반영
-    - em.detach();  // 엔티티를 준영속 상태로 전환
-    - em.merge();   // 준영속 상태의 엔티티를 영속상태로 변경
-    - em.clear();   // 영속성 컨텍스트 초기화
-    - em.close();   // 영속성 컨텍스트 종료
-- @Id @GeneratedValue
-  - 테스트코드 구현할때 Id 값을 set 하지 않아도 알아서 적절한 값이 들어간 이유가 이거 때문인듯
+  - 기존에는 EntityManagerFactory에서 persistence.xml에 입력한 DB 정보를 바탕으로 EntityManager 생성했었는데,
+  - 스프링 부트에서 이 에노테이션 사용하면 알아서 주입 해줌.
 - @Transactional
-  - 테이블 값을 변경할때는 트랜젝션으로 쏴줘야 된대. 안그러면 변경 안됨.
+  - 기존에는 em.get트랜젝션 해서 tx.start() 하고 tx.commit 하고,
+    try catch finally문 써서 실패할경우 rollback 하고, finally에서 em.close 써주고 다 해줬잖아
+  - 스프링 부트에서는 이 에노테이션 쓰면 알아서 다 해줌.
   - test 코드에서 사용할 경우, 테스트 돌리고 나서 자동으로 rollback 해줌. 단, @Rollback(false) 라 해주면 롤백 안해줌
 - JUnit4
   - 현재 테스트 코드를 JUnit4로 돌리고 있음. 때문에 build.gradle에서 test를 junit4로 돌리라고 설정해줌. 이걸 따로 안잡아주면 디폴트로 junit5가 돌아가는듯
   - 테스트 코드 작성할때 위에 어노테이션을 @Runwith 이라든가, org.junit.Test의 @Test 라든가 하는것도 다 junit4 전용 라이브러리인듯.
+  - @RunWith(SpringRunner.class) : 스프링 관련된걸로 테스트 할거야~ 라고 알려주는거
+  - JUnit5에서 @SpringBootTest 작성시 별도로 작성하지 않아도 됨.
   - 일단 이 강의는 junit4로 진행하고, 후에 수정을 하든 하자.
-- 도메인 모델, 엔티티분석, 테이블 분석, 싱글 테이블 전략, 맵핑 테이블, 임베디드 타입,,, 등등 이게 데이터베이스 + JPA 를 알아야 이해할 수 있는 개념들이 죽죽 나오네.
-- 데이터베이스 복습이랑 JPA 공부하고 다시 오자.
+  - tdd + tab : given when then 틀 만들어놓음.
+- p6spy. 쿼리 날라가는거 잘 보이게 해주는 오픈소스. build.gradle에 추가함.
+- 현재 기존 테이블이 드랍되지 않는 버그가 있는데, 이는 H2버전과 하이버네이트버전의 문제인듯. 추후에 수정.
