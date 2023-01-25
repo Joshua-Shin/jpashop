@@ -1,7 +1,12 @@
-## SpringBoot와 JPA를 활용한 웹 애플리케이션 개발 프로젝트
-- 본 프로젝트는 <실전! 스프링 부트와 JPA 활용1 : 웹 애플리케이션 개발 - 김영한> 강의를 수강하며 진행한 실습 프로젝트 입니다.
-- 개발 환경 : Java 11, Spring Boot(2.7.7), JPA, thymeleaf, JUnit4, IntelliJ, H2 database(1.4.200)
--------
+## SpringBoot와 JPA를 활용한 쇼핑몰 웹 애플리케이션 개발 프로젝트
+### 개발 환경  
+- Java 11, Spring Boot(2.7.7), JPA, thymeleaf, JUnit4, IntelliJ, H2 database(1.4.200)
+- thymeleaf, lombok
+### 구현 기능
+- 회원 기능 : 회원 가입, 회원 목록
+- 상품 기능 : 상품 등록, 상품 목록
+- 주문 기능 : 상품 주문, 주문 내역
+
 ### 엔티티 구조
 <img width="799" alt="스크린샷 2023-01-25 오후 7 58 04" src="https://user-images.githubusercontent.com/93418349/214547603-5ca8ed34-834d-45e3-bb7c-37c1a4f1cce3.png">
 
@@ -31,3 +36,9 @@
 - 현재 기존 테이블이 드랍되지 않는 버그가 있는데, 이는 H2버전과 하이버네이트버전의 문제인듯. 추후에 수정.
 
 #### 도메인 분석 설계
+- Category 엔티티를 보면 셀프 조인을 함.
+  - 내가 parent라 생각하면 child가 여럿 있을테니 OneToMany로 지정해서, 콜렉션으로 참조하는거고.
+  - 내가 child라 생각하면 parent가 하나 있을테니 ManyToOne으로 지정해서 연관관계 주인으로 잡는거고.
+- 값타입 클래스는 immutable하게 관리되어야 함.
+  - Member가 참조하는 Address와 Delivery가 참조하는 Address가 공유하게 되어 값이 변경되는 대참사가 발생할 수도 있어
+  - 따라서 Setter를 없애고, 생성자를 만들되, JPA에서는 스펙상 해당 클래스의 빈 생성자가 필요하기에 protected의 껍데기 생성자도 하나 넣어둬야돼.
