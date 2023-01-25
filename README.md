@@ -2,12 +2,13 @@
 - 본 프로젝트는 <실전! 스프링 부트와 JPA 활용1 : 웹 애플리케이션 개발 - 김영한> 강의를 수강하며 진행한 실습 프로젝트 입니다.
 - 개발 환경 : Java 11, Spring Boot(2.7.7), JPA, thymeleaf, JUnit4, IntelliJ, H2 database(1.4.200)
 -------
-#### 엔티티 분석
-![](../../../../Desktop/스크린샷 2023-01-25 오후 7.58.04.png)
+### 엔티티 구조
+<img width="799" alt="스크린샷 2023-01-25 오후 7 58 04" src="https://user-images.githubusercontent.com/93418349/214547603-5ca8ed34-834d-45e3-bb7c-37c1a4f1cce3.png">
 
 
-#### 테이블 분석
-![](../../../../Desktop/스크린샷 2023-01-25 오후 7.58.37.png)
+### 테이블 구조
+<img width="798" alt="스크린샷 2023-01-25 오후 7 58 37" src="https://user-images.githubusercontent.com/93418349/214547614-546209e6-8aeb-49cd-92e7-b25c51e00f5c.png">
+
 -------
 ### 강의 내용 요약
 #### 프로젝트 환경설정
