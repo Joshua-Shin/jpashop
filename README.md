@@ -1,6 +1,13 @@
 ## SpringBoot와 JPA를 활용한 웹 애플리케이션 개발 프로젝트
 - 본 프로젝트는 <실전! 스프링 부트와 JPA 활용1 : 웹 애플리케이션 개발 - 김영한> 강의를 수강하며 진행한 실습 프로젝트 입니다.
-- 사용 도구 : Java 11, Spring Boot(2.7.7), JPA(Hibernate 5.4.13.Final), thymeleaf, JUnit4, IntelliJ, H2 database(1.4.200)
+- 개발 환경 : Java 11, Spring Boot(2.7.7), JPA, thymeleaf, JUnit4, IntelliJ, H2 database(1.4.200)
+-------
+#### 엔티티 분석
+![](../../../../Desktop/스크린샷 2023-01-25 오후 7.58.04.png)
+
+
+#### 테이블 분석
+![](../../../../Desktop/스크린샷 2023-01-25 오후 7.58.37.png)
 -------
 ### 강의 내용 요약
 #### 프로젝트 환경설정
@@ -21,3 +28,5 @@
   - tdd + tab : given when then 틀 만들어놓음.
 - p6spy. 쿼리 날라가는거 잘 보이게 해주는 오픈소스. build.gradle에 추가함.
 - 현재 기존 테이블이 드랍되지 않는 버그가 있는데, 이는 H2버전과 하이버네이트버전의 문제인듯. 추후에 수정.
+
+#### 도메인 분석 설계
