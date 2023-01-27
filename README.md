@@ -66,7 +66,7 @@
 #### 회원 도메인 개발
 - @PersistenceContext 를 통해 entityManager를 주입 받았었는데, Spring data JPA 에서는 이를 @Autowired로 해도 가능하게 해줌
   - 여기에 필드 주입 말고 생성자 주입 스타일로 DI를 하고, 롬복까지 사용하게 되면, 그냥 클래스 위에다가 @RequiredAugsConstructor 만 적어두면 깔끔하게 해결 
-- 되도록 필드는 private final 까지 해주고.
+  - 필드는 반드시 private final으로 선언해줘야 주입됨. 그냥 private만 하면 주입 안됨.
 - @Transactional(readOnly = true)
   - 디폴드값은 false로 되어있는데, 단순히 조회만 하는 메소드의 경우 해당 옵션을 해주면 성능에서 이점을 챙길 수 있음
   - read 메소드가 대부분인 클래스다 싶으면 클래스 전체에다가 @Transactional(readOnly = true) 걸어주고, 아닌 메소드에다가 @Transactional 걸고
