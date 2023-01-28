@@ -1,5 +1,6 @@
 package jpabook.jpashop.controller;
 
+import java.util.List;
 import javax.validation.Valid;
 import jpabook.jpashop.domain.Address;
 import jpabook.jpashop.domain.Member;
@@ -20,6 +21,13 @@ public class MemberController {
     public String createForm(Model model) {
         model.addAttribute("memberForm", new MemberForm());
         return "members/createMemberForm";
+    }
+
+    @GetMapping(value = "/members")
+    public String list(Model model) {
+        List<Member> members = memberService.findMembers();
+        model.addAttribute("members", members);
+        return "members/memberList";
     }
 
     @PostMapping(value = "members/new")
