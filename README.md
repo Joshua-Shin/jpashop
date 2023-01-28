@@ -128,4 +128,14 @@
 - @Slf4j : Logger log 주입해줌.
 - @RequestMapping("/") : 클라이언트가 url 치고 들어올 때 보여줄 html 파일을 매핑해줌.
 - html 파일 복붙. Bootstrap 다운받고 css, js 복붙
-- 
+- 선수 지식 부재..
+  - 이번 강의 파트의 내용을 정확히 이해하려면 최소한 html은 알아야 하고, thymeleaf, http, 웹MVC에 대한 이해가 필요할듯.
+  - jsp든 thymeleaf든 mustache든 템플릿 엔진을 하나는 익혀두긴 해야할듯.
+  - 템플릿 엔진은 html 파일을 동적으로 작동하여 화면을 만들어주는 소프트웨어.
+  - jsp는 지는해이고, thymeleaf은 스프링이 공식적으로 권장하는 템플릿엔진이고. mustache 얘는 SSR이 아니라 CSR이네
+  - 이 강의가 얼마 안남았으니 일단은 끝까지 따라해보고 추후에 html -> thymeleaf -> http -> 웹MVC 순으로 학습하자 
+- Member엔티티가 있는데 MemberForm을 따로 만든 이유
+  - 도메인이 원하는 valid 데이터와 MemberForm이 원하는 valid 데이터가 달라.
+  - 굳이 굳이 Member엔티티의 필드에다가 이런저런 옵션 넣어서 MemberForm이 원하는 valid 데이터로만 제한을 걸수 있겠지만,
+  - 그러면 엔티티가 지저분해짐.
+  - 따라서 그냥 새로운 적합한 Form을 만들고 Web 혹은 Controller 층에서 데이터를 받아 한번 필터링 하여 Member에 넣는게 좋아.  
