@@ -14,6 +14,10 @@
 ### 테이블 구조
 <img width="798" alt="스크린샷 2023-01-25 오후 7 58 37" src="https://user-images.githubusercontent.com/93418349/214547614-546209e6-8aeb-49cd-92e7-b25c51e00f5c.png">
 
+### Admin 페이지
+<img width="757" alt="스크린샷 2023-02-06 오후 2 17 39" src="https://user-images.githubusercontent.com/93418349/216889529-27031cf2-821c-42f6-b84f-74873e85731e.png">
+
+
 -------
 ### 강의 내용 요약
 #### 프로젝트 환경설정
